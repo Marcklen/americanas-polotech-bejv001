@@ -4,14 +4,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-// classe responsável por instanciar um novo usuario e twitter
 public class Aplicativo {
 
-	static Scanner ler = new Scanner(System.in);
-	static LocalDateTime data = LocalDateTime.now();
-	static DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-	static Usuario usuario = new Usuario();
-	static Twitter twitter = new Twitter();
+	public static Scanner ler = new Scanner(System.in);
+	public static LocalDateTime data = LocalDateTime.now();
+	public static DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+	public static Usuario usuario = new Usuario();
+	public static Twitter twitter = new Twitter();
 
 	public static void main(String[] args) {
 		Integer op;
@@ -77,7 +76,7 @@ public class Aplicativo {
 		System.out.println("login iniciado em " + formatarData());
 		System.out.print("Informe o seu email: ");
 		String email = ler.next();
-		System.out.print("Informe o seu email: ");
+		System.out.print("Informe a sua senha: ");
 		String senha = ler.next();
 		if (usuario.getEmail().equalsIgnoreCase(email) && usuario.getSenha().equals(senha)) {
 			System.out.println("USUARIO LOGADO COM SUCESSO");
@@ -115,8 +114,6 @@ public class Aplicativo {
 	}
 
 	static void Logout() {
-		// String dataFormatada
-		// dataFormatada = data.format(formatada);
 		System.out.println("Logout finalizado em " + formatarData());
 		System.out.println("Tenha uma excelente semana!!!");
 	}
