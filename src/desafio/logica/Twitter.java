@@ -31,7 +31,14 @@ public class Twitter {
 		this.twitter = twitter;
 	}
 
-	public String postar(Usuario usuario, String postagem) {
-		return "Usuario " + usuario.getNome() + " twittou -> " + getPostagem() ;
+	public String postar(Usuario usuario, String twites) {
+		return "Usuario " + usuario.getNome() + " twittou -> " + getTwitter() ;
+	}
+	
+	public void lerPostagem() {
+		
+		for (String s : postagem) {
+			System.out.print(s + " ");
+		}
 	}
 }

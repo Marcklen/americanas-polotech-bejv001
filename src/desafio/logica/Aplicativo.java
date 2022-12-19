@@ -49,6 +49,14 @@ public class Aplicativo {
 		System.out.println("+---------------------+\n");
 	}
 
+	static void MenuLogin() {
+		System.out.println("+---- Twitter Ada ----+");
+		System.out.println("|1) Twittar ----------|");
+		System.out.println("|2) Twittes ----------|");
+		System.out.println("|3) Logout -----------|");
+		System.out.println("+---------------------+\n");
+	}
+
 	static void Cadastro() {
 		String nome, email, senha;
 		System.out.print("Informe o seu nome de usuario: ");
@@ -74,23 +82,31 @@ public class Aplicativo {
 		if (usuario.getEmail().equalsIgnoreCase(email) && usuario.getSenha().equals(senha)) {
 			System.out.println("USUARIO LOGADO COM SUCESSO");
 			Integer op;
-			do { 
-				System.out.println("+---- Twitter Ada ----+");
-				System.out.println("|1) Twittar ----------|");
-				System.out.println("|2) Twittes ----------|");
-				System.out.println("|3) Logout -----------|");
-				System.out.println("+---------------------+\n");
+			do {
+				MenuLogin();
 				System.out.print("Escolha uma opção --> ");
 				op = ler.nextInt();
 				switch (op) {
 				case 1: {
 					System.out.println("O que está acontecendo?");
-					String texto = ler.next();
-					twitter.postar(usuario, texto);
+					String twiter = ler.nextLine();
+					twitter.postar(usuario, twiter);
+					// twitter.lerPostagem();
+					System.out.println(twiter);
 					break;
 				}
-					default:
-						throw new IllegalArgumentException("Unexpected value: " + op);
+				case 2: {
+					System.out.println("Twittes publicados");
+					twitter.lerPostagem();
+				}
+
+				case 3: {
+					System.out.println("Opção escolhida: " + op);
+					Logout();
+					break;
+				}
+				default:
+					throw new IllegalArgumentException("Unexpected value: " + op);
 				}
 			} while (op != 3);
 		} else {
