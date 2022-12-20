@@ -7,8 +7,6 @@ import java.util.Scanner;
 public class Aplicativo {
 
 	public static Scanner ler = new Scanner(System.in);
-	public static LocalDateTime data = LocalDateTime.now();
-	public static DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 	public static Usuario usuario = new Usuario();
 	public static Twitter twitter = new Twitter();
 
@@ -119,6 +117,8 @@ public class Aplicativo {
 	}
 
 	static String formatarData() {
+		LocalDateTime data = LocalDateTime.now();
+		DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		return data.format(formataData);
 	}
 }
